@@ -1,0 +1,42 @@
+\documentclass[12pt]{lettre}
+
+\usepackage{tgpagella}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[frenchb]{babel}
+\usepackage{numprint}
+
+\makeatletter
+\newcommand*{\NoRule}{\renewcommand*{\rule@length}{0}}
+\makeatother
+
+\begin{document}
+
+\begin{letter}{Service des réclamations}
+ \NoRule
+\name{Maxime GUILLAUME}
+\address{Maxime GUILLAUME\\4, rue du Bac à sable\\80886 Sassone-le-Creux}
+\lieu{Sassone-le-Creux}
+\telephone{01 02 03 04 05}
+\email{jean.raleur@fai.fr}
+\nofax
+
+\def\concname{Objet :~} % On définit ici la commande 'objet'
+\conc{rétractation}
+\opening{Madame, Monsieur,}
+
+Vous m'avez démarché la semaine dernière
+pour me proposer l'édition de luxe de l'encyclopédie Wikipédia,
+pour la somme de \numprint{5000}~\euro.
+Conformément à la loi m'accordant un délai de rétractation de 7~jours,
+je renonce à mon achat et demande le remboursement de la somme versée.
+
+
+\closing{Je vous prie d'agréer,
+Madame, Monsieur,
+mes salutations distinguées.}
+
+\end{letter}
+
+\end{document}
