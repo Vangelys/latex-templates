@@ -97,7 +97,7 @@
     14\fibeamer@lengths@baseunit}
   \newlength\fibeamer@lengths@logoheight
   \setlength\fibeamer@lengths@logoheight{%
-    0.2\fibeamer@lengths@logowidth}
+    0.4\fibeamer@lengths@logowidth}
   \defbeamertemplate*{navigation symbols}{fibeamer}{}
   \defbeamertemplate*{headline}{fibeamer}{}
   \defbeamertemplate*{frametitle}{fibeamer}{%
@@ -111,8 +111,6 @@
       \insertframesubtitle}
   \defbeamertemplate*{footline}{fibeamer}{%
     \ifnum\c@framenumber=0\else%
-    
-    
       \begin{tikzpicture}[overlay]
         \node[anchor=south east,
           yshift=\fibeamer@lengths@footerpad,
@@ -126,49 +124,43 @@
   \defbeamertemplate*{title page}{fibeamer}{%
     % This is slide 0
     \setcounter{framenumber}{0}
-
-
-
+    
+    
+    
     % Input the title
     \usebeamerfont{title}%
     \usebeamercolor[fg]{title}%
     \begin{minipage}[b][2\baselineskip][b]{\textwidth}%
       \raggedright\inserttitle
     \end{minipage}
-    \vskip0.5\baselineskip
-
- 
+    \vspace{6pt}
     % Input the subtitle
     \usebeamerfont{subtitle}%
     \usebeamercolor[fg]{subtitle}%
     \begin{minipage}{\textwidth}
       \raggedright%
       \insertsubtitle%
-    \end{minipage}\vskip1.25\baselineskip
+    \end{minipage}
+    \vspace{3pt}
 
     % Input the author's name
     \usebeamerfont{author}%
     \usebeamercolor[fg]{author}%
     \begin{minipage}{\textwidth}
-      \raggedleft%
+      \raggedright%
       \insertauthor%
     \end{minipage}
     
+    \begin{minipage}{\textwidth}
+      \raggedleft
+        \usebeamerfont{author}%
+    \usebeamercolor[fg]{author}%
+        \textcolor{white}{University of Lorraine}
+    \end{minipage}  
+      
+  }
 
-    \begin{tikzpicture}[
-     % xshift=\fibeamer@lengths@logowidth,
-     % yshift=0.1\fibeamer@lengths@logoheight,
-      overlay
-    ]
-      \begin{scope}[shift={(current page.south east)}]
-      \node at (0,0) {
-        \fibeamer@includeLogo[
-          width=\fibeamer@lengths@logowidth,
-          height=\fibeamer@lengths@logoheight
-        ]};
-        \end{scope}
-    \end{tikzpicture}
-    }
+    
 
 \mode
 <all>

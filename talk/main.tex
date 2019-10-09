@@ -1,23 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% I, the copyright holder of this work, release this work into the
-%% public domain. This applies worldwide. In some countries this may
-%% not be legally possible; if so: I grant anyone the right to use
-%% this work for any purpose, without any conditions, unless such
-%% conditions are required by law.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass{beamer}
-\usetheme[faculty=science, university=uu, logo=uu-logo]{fibeamer}
+\usetheme[faculty=fsps]{fibeamer}
 \usepackage[utf8]{inputenc}
 \usepackage[
-  main=english
-]{babel}
+  main=english, %% By using `czech` or `slovak` as the main locale
+                %% instead of `english`, you can typeset the
+                %% presentation in either Czech or Slovak,
+                %% respectively.
+  french,latin %% The additional keys allow foreign texts to be
+]{babel}        %% typeset as follows:
+
 \title{Presentation Title} %% that will be typeset on the
-\subtitle{Presentation Subtitle} %% title page.
+\subtitle{Subtitle} %% title page.
 \author{Maxime GUILLAUME}
+%% These additional packages are used within the document:
 \usepackage{ragged2e}  % `\justifying` text
 \usepackage{booktabs}  % Tables
 \usepackage{tabularx}
+\usepackage[numbers]{natbib}
 \usepackage{tikz}      % Diagrams
 \usetikzlibrary{calc, shapes, backgrounds}
 \usepackage{amsmath, amssymb}
@@ -26,6 +25,11 @@
 \frenchspacing
 \begin{document}
   \frame{\maketitle}
+
+  \begin{frame}[plain]{Outline}
+    \tableofcontents
+    \end{frame}
+
 
   \AtBeginSection[]{% Print an outline at the beginning of sections
     \begin{frame}<beamer>
@@ -37,12 +41,7 @@
     \subsection{Blind Text}
     \begin{frame}{Jabberwocky}
       \framesubtitle{Lewis Carroll}%
-      \begin{tikzpicture}[overlay,remember picture]
-        \node[anchor=south east,xshift=-30pt,yshift=35pt]
-          at (current page.south east) {
-            \includegraphics[width=35mm]{resources/jabberwocky-light}
-          };
-      \end{tikzpicture}%
+    
       'Twas brillig, and the slithy toves\\
       Did gyre and gimble in the wabe;\\
       All mimsy were the borogoves,\\
@@ -306,31 +305,19 @@
       Class}~\cite{tantau04}.
     \end{frame}
 
-    \begin{frame}[label=bibliography]{Bibliography}
-      \framesubtitle{\TeX, \LaTeX, and Beamer}
-      \begin{thebibliography}{9}
-        \bibitem{knuth84}
-            Donald~E.~Knuth.
-            \emph{The \TeX book}.
-            Addison-Wesley, 1984.
-        \bibitem{lamport94}
-            Leslie~Lamport.
-            \emph{\LaTeX : A Document Preparation System}.
-            Addison-Wesley, 1986.
-        \bibitem{MG94}
-            M.~Goossens, F.~Mittelbach, and A.~Samarin.
-            \emph{The \LaTeX\ Companion}.
-            Addison-Wesley, 1994.
-        \bibitem{tantau04}
-            Till~Tantau.
-            \emph{User's Guide to the Beamer Class Version 3.01}.
-            Available at \url{http://latex-beamer.sourceforge.net}.
-        \bibitem{MS05}
-            A.~Mertz and W.~Slough.
-            Edited by B.~Beeton and K.~Berry.
-            \emph{Beamer by example} In TUGboat,
-              Vol. 26, No. 1., pp. 68-73.
-      \end{thebibliography}
-    \end{frame}
+  \begin{frame}[label=bibliography]{Bibliography}
+    \nocite{oger2008demand}
+      \bibliographystyle{unsrt}
+      \bibliography{ref}
+    \end{frame}  
 
+  \begin{darkframes}
+    \begin{frame}[plain]{}
+        \begin{center}
+            \Huge\textbf{Questions} ?
+        \end{center}
+    \end{frame}
+  \end{darkframes}
+  
+  
 \end{document}
